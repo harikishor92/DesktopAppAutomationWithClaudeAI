@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="POS Automation Suite" verbose="1">
+
+    <listeners>
+        <listener class-name="com.pos.automation.listeners.ExtentReportListener"/>
+    </listeners>
+
+    <test name="POS Smoke Tests">
+        <classes>
+            <class name="com.pos.automation.tests.AlbertaPOSLaunchTest"/>
+        </classes>
+    </test>
+
+     <test name="Home Page Test">
+        <classes>
+            <class name="com.pos.automation.tests.HomePageTest"/>
+        </classes>
+    </test>
+
+    <test name="Transaction Test">
+        <classes>
+            <class name="com.pos.automation.tests.TransactionTest"/>
+        </classes>
+    </test>
+
+</suite>

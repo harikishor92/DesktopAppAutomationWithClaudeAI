@@ -1,0 +1,19 @@
+# Build output
+target/
+
+# Log files
+logs/
+*.log
+
+# AlbertaPOS artifacts written to working directory during test execution
+POSLog*.txt
+*.db
+
+# IDE
+.vscode/settings.json
+.idea/
+*.iml
+
+# OS
+Thumbs.db
+.DS_Store

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!--
+  Full POS Automation Suite — all test classes in one suite.
+  AlbertaPOS is launched ONCE via @BeforeSuite in BaseTest.
+
+  IMPORTANT: Because all four test classes share one @BeforeSuite, the app is launched
+  once. Each test that needs the main POS window creates its own WinAppDriver session
+  via AlbertaPOSPage.attachToMainWindow() and closes it in @AfterClass.
+
+  LOGIN STATE WARNING: Running AlbertaPOSLaunchTest first leaves the app on the Home
+  Page. Subsequent test classes (HomePageTest, etc.) call waitForLoginScreen() and
+  loginPage.login() again — they will skip gracefully if the app is already past the
+  login screen (LoginPage handles NoSuchWindowException). Verify session-restore popup
+  behaviour matches your AlbertaPOS version before using this suite in CI.
+
+  Run with:
+    mvn test -DsuiteXmlFile=src/test/resources/testng-full-suite.xml
+-->
+<suite name="POS Full Automation Suite" verbose="1">
+
+    <listeners>
+        <listener class-name="com.pos.automation.listeners.ExtentReportListener"/>
+    </listeners>
+
+    <test name="POS Smoke Tests">
+        <classes>
+            <class name="com.pos.automation.tests.AlbertaPOSLaunchTest"/>
+        </classes>
+    </test>
+
+    <test name="Home Page Test">
+        <classes>
+            <class name="com.pos.automation.tests.HomePageTest"/>
+        </classes>
+    </test>
+
+</suite>

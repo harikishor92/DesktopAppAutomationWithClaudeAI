@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!--
+  Home Page Validation Suite
+  Run with: mvn test -DsuiteXmlFile=src/test/resources/testng-homepage.xml
+
+  This suite is intentionally separate from testng.xml because each suite launches
+  AlbertaPOS once via @BeforeSuite.  Running two suites that both contain @BeforeSuite
+  in the same Maven execution would require a parallel/multi-suite configuration.
+-->
+<suite name="POS Home Page Suite" verbose="1">
+
+    <listeners>
+        <listener class-name="com.pos.automation.listeners.ExtentReportListener"/>
+    </listeners>
+
+    <test name="Home Page Validation">
+        <classes>
+            <class name="com.pos.automation.tests.HomePageValidationTest"/>
+        </classes>
+    </test>
+
+</suite>
